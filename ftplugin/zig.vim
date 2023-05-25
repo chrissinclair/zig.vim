@@ -5,13 +5,6 @@ endif
 
 let b:did_ftplugin = 1
 
-let s:cpo_orig = &cpo
-set cpo&vim
-
-if get(g:, 'zig_set_compiler', 1)
-    compiler zig_build
-endif
-
 " Match Zig builtin fns
 setlocal iskeyword+=@-@
 
@@ -58,7 +51,4 @@ augroup vim-zig
 augroup END
 
 let b:undo_ftplugin .= '|au! vim-zig * <buffer>'
-
-let &cpo = s:cpo_orig
-unlet s:cpo_orig
 " vim: tabstop=8 shiftwidth=4 softtabstop=4 expandtab
